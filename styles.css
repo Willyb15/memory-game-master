@@ -1,0 +1,97 @@
+#mg-wrapper{
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.mg-tile{
+  width: 20%;
+  padding: 5px;
+  box-sizing: border-box;
+  float: left;
+  height: 200px;
+  perspective: 500px; 
+  margin-bottom: 10px;
+}
+
+.mg-tile-inner{
+  width: 100%;
+  cursor: pointer;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform .3s;
+  /* transform-orgin */
+}
+
+.mg-tile-outside, .mg-tile-inside{
+/*  position must be set
+  top and left must be set
+  height and width must be set */
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-shadow: 0 0 0 1px #787a80;
+  backface-visibility: hidden;
+}
+
+.mg-tile-outside{
+/*  Apply a background element/url
+  change bg color so it's not obvious its turned over
+  set the width
+  set the default display (because inside, will be different) */
+    background: url("img/default/logo-bw.png") 50% 50% no-repeat;
+  background-color: #dcdee1;
+  width: 100%;
+  height: 200px;
+}
+.mg-tile-inside{
+  background-color: #f8fafc;
+  width: 100%;
+  transform: rotateY(180deg);
+}
+
+.unmatched{
+
+}
+.flipped{
+  transform: rotateY(-180deg);
+}
+/*      var html = '<div class="mg-tile">';
+          html += '<div class="mg-tile-inner unmatched flipped">';
+            html += '<div class="mg-tile-outside"></div>';
+            html += '<div class="mg-tile-inside">' + gridArray[i]+'</div>';
+ */
+#button-bucket, h1{
+  text-align: center;
+  margin: auto;
+  padding: 2%;
+}
+
+#button-bucket .diff{
+  font-size: 60px;
+  border-radius: 20px;
+}
+
+.counter, .diff{
+  text-align: center;
+  outline: 0;
+  cursor: pointer;
+}
+
+#easy{
+  background-color: green;
+}
+
+#med{
+  background-color: yellow;
+}
+
+#hard{
+  background-color: red;
+}
+
+img{
+  max-width: 100%;
+}
+
+

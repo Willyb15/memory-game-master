@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css" media="screen">
+	#box, #new-box{
+		perspective:600px;
+		/*perspective-origin:10% 10%;*/
+		margin:100px;
+		border:1px solid black;
+		width:200px;
+		height: 200px;
+		float:left;
+	}
+
+	#red-box{
+		background-color: red;
+		width:200px;
+		height:200px;
+		transition:all 5s ease;
+/*		transform:rotateY(45deg);
+		transform:rotateX(45deg);
+		transform:rotateZ(45deg);*/
+		transform:translateZ(-500px) ;
+	}
+
+	#blue-box{
+	background-color: blue;
+	width:200px;
+	height:200px;
+	transition:all 5s ease;
+/*		transform:rotateY(45deg);
+	transform:rotateX(45deg);
+	transform:rotateZ(45deg);*/
+	transform:translateZ(-500px) ;
+	}
+#red-box.flip{
+	transform: rotateX(180deg) rotateZ(360deg) rotateY(100deg);
+}
+
+#blue-box.flip{
+	transform: rotateX(130deg) rotateZ(360deg) rotateY(-360deg);
+}
+
+
+	</style>
+
+</head>
+<body>
+
+	<div id="box">
+		<div id="red-box">
+		</div>
+	</div>
+	<div id="new-box">
+		<div id="blue-box">
+		</div>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	<script src="/javascripts/application.js" type="text/javascript" href="script.js"></script>
+
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$('#red-box, #blue-box').click(function(){
+			$(this).toggleClass('flip');
+		});	
+	});
+
+	</script>
+</body>
+</html>
