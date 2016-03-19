@@ -30,12 +30,15 @@ $(document).ready(function(){
 		if(diff == 'easy'){
 			rowSize = 5;
 			gridSize = rowSize*2;
+			$('#mg-wrapper').addClass('easy');			
 		}else if(diff=="med"){
 			rowSize = 5;
 			gridSize = rowSize*4;
+			$('#mg-wrapper').addClass('med');			
 		}else if(diff=="hard"){
 			rowSize = 7;
 			gridSize = rowSize*4;
+			$('#mg-wrapper').addClass('hard');
 		}
 		$('#button-bucket').toggle();
 		gameTiles = cards.slice(0,(gridSize/2));
@@ -59,25 +62,39 @@ $(document).ready(function(){
 			$('.mg-tile-inner').removeClass('flipped');
 		},2000);
 
+
+		$('.mg-tile-inner')
+
 		$('.mg-tile').click(function(){
 			$(this).find('.mg-tile-inner').addClass('flipped');
 			if($('.flipped.unmatched').length == 2){
-				var visibleCards = $('.flipped.unmatched img')
+				moves++
+				var visibleCards = $('.flipped.unmatched img');
 				if(visibleCards[0].src == visibleCards[1].src){
-					$('.flipped.unmatched').removeClass('unmatched');
+					//leave them flipped
+					//add matched
 					$('.flipped.unmatched').addClass('matched');
+					//remove unmatched
+					$('.flipped.unmatched').removeClass('unmatched');
+				}else{
+					//The user has flipped over 2 cards and they DO NOT match.	
+					setTimeout(function(){
+						$('.flipped.unmatched').removeClass('flipped');	
+					},500);
 				}
-
-				if ($('.flipped.matched' == gridArray.length)){
+				if($('.flipped.matched').length == gridArray.length){
 					alert('you have matched them all');
+					wins++
 				}
-
+			}else{
+				//Only one card is flipped up
 			}
+			$('#move-counter').html(moves);
+			$('#wins-counter').html(wins);			
 		});
+
 	});
 });
-
-
 
 
 

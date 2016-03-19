@@ -5,14 +5,20 @@
 }
 
 .mg-tile{
-  width: 20%;
   padding: 5px;
   box-sizing: border-box;
   float: left;
   height: 200px;
   perspective: 500px; 
-  margin-bottom: 10px;
 }
+
+.easy .mg-tile, .med .mg-tile{
+  width: 20%;
+}
+.hard .mg-tile{
+  width: 14.28%;
+}
+
 
 .mg-tile-inner{
   width: 100%;
