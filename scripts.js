@@ -68,7 +68,8 @@ $(document).ready(function(){
 		$('.mg-tile').click(function(){
 			$(this).find('.mg-tile-inner').addClass('flipped');
 			if($('.flipped.unmatched').length == 2){
-				moves++
+				moves++;
+				$('#move-counter').html(moves);	
 				var visibleCards = $('.flipped.unmatched img');
 				if(visibleCards[0].src == visibleCards[1].src){
 					//leave them flipped
@@ -84,14 +85,26 @@ $(document).ready(function(){
 				}
 				if($('.flipped.matched').length == gridArray.length){
 					alert('you have matched them all');
-					wins++
+					wins++;
+					win();
+
 				}
 			}else{
 				//Only one card is flipped up
 			}
-			$('#move-counter').html(moves);
-			$('#wins-counter').html(wins);			
+			
+			$('#wins-counter').html(wins);
+					
 		});
+
+		function win(){
+			moves = 0;
+			$('.mg-tile').remove();
+			$('#button-bucket').toggle();
+			$('#move-counter').html(moves);
+
+			
+		}
 
 	});
 });
