@@ -45,7 +45,7 @@
   change bg color so it's not obvious its turned over
   set the width
   set the default display (because inside, will be different) */
-    background: url("img/default/logo-bw.png") 50% 50% no-repeat;
+  background: url("img/default/logo-bw.png") 50% 50% no-repeat;
   background-color: #dcdee1;
   width: 100%;
   height: 200px;
@@ -78,6 +78,10 @@
   border-radius: 20px;
 }
 
+.reset{
+  margin:0 auto;
+
+}
 .counter, .diff{
   text-align: center;
   outline: 0;
