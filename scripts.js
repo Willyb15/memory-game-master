@@ -22,18 +22,7 @@ var cards = [
 	"<img src='img/default/monsters-16.png'>"
 ];
 
-function shuffle(){
-	var numberofTimesToShuffle = 500;
-	for(i=1; i<numberofTimesToShuffle; i++){
-		card1 = Math.floor(Math.random()*gridArray.length);
-		card2 = Math.floor(Math.random()*gridArray.length);
-		if(card1 != card2){
-			temp = gridArray[card1];
-			gridArray[card1] = gridArray[card2]
-			gridArray[card2] = temp;
-		}	
-	}
-}
+
 
 $(document).ready(function(){
 
@@ -51,8 +40,9 @@ $(document).ready(function(){
 			rowSize = 7;
 			gridSize = rowSize*4;
 			$('#mg-wrapper').addClass('hard');
-			$('#button-bucket').toggle();
+		
 		}
+			$('#button-bucket').toggle();
 		gameTiles = cards.slice(0,(gridSize/2));
 		gridArray = $.merge(gameTiles, gameTiles);
 
@@ -116,7 +106,18 @@ $(document).ready(function(){
 			$('#move-counter').html(moves);
 		}
 
-
+function shuffle(){
+	var numberofTimesToShuffle = 20;
+	for(i=1; i<numberofTimesToShuffle; i++){
+		card1 = Math.floor(Math.random()*gridArray.length);
+		card2 = Math.floor(Math.random()*gridArray.length);
+		if(card1 != card2){
+			temp = gridArray[card1];
+			gridArray[card1] = gridArray[card2]
+			gridArray[card2] = temp;
+		}	
+	}
+}
 
 	});
 });
